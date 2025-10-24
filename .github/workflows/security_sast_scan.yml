@@ -17,10 +17,6 @@ jobs:
       actions: read
 
     steps:
-
-      - name: 🧪 List files 1
-        run: ls -la
-
       - name: 📥 Checkout du code
         uses: actions/checkout@v4
 
@@ -35,9 +31,6 @@ jobs:
           pip install semgrep
           semgrep --version
       
-      - name: 🧪 List files 2
-        run: ls -la
-
       - name: 🚀 Exécution de Semgrep et génération du rapport SARIF
         run: |
           semgrep --config auto --sarif --output semgrep-report.sarif .
@@ -45,9 +38,6 @@ jobs:
           VULN_COUNT=$(cat vuln_count.txt)
           echo "Nombre de vulnérabilités détectées : $VULN_COUNT"
           echo "VULN_COUNT=$VULN_COUNT" >> $GITHUB_ENV
-
-      - name: 🧪 List files 3
-        run: ls -la
 
       - name: ⬆️ Upload Semgrep file as SARIF to GitHub Advanced Security
         uses: github/codeql-action/upload-sarif@v3

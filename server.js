@@ -117,6 +117,10 @@ app.get('/hello', (req, res) => {
   res.send('Hello World!');
 });
 
+app.get('/bye', (req, res) => {
+  res.send('Bye World!');
+});
+
 // === Insecure file download (path traversal possible) ===
 app.get('/files/:filename', (req, res) => {
   const filename = req.params.filename || '';

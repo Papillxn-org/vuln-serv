@@ -18,7 +18,7 @@ jobs:
 
     steps:
 
-      - name: 🧪 List files 1
+      - name: 🧪 List files
         run: ls -la
 
       - name: 📥 Checkout du code
